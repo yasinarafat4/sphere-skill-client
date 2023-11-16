@@ -25,7 +25,7 @@ const Courses = () => {
       </Helmet>
 
       {/* Title */}
-      <PageTitle heading={"Courses"} />
+      <PageTitle heading={"Courses"} text={"Enroll the vibrant realm of expression with our most popular courses. Immerse yourself in a captivating journey of techniques, and boundless creativity, guided by our talented instructors who inspire and empower your skills growth."} />
 
       {/* Search Box */}
       <div className="flex items-center justify-end  mb-6">
