@@ -73,7 +73,7 @@
   },
   {
     "_id": "7",
-    "name": "Artificial Intelligence Fundamentals",
+    "name": "AI Fundamentals",
     "image": "https://i.ibb.co/r34j55K/artificial-intelligence-fundamentals.jpg",
     "instructor_name": "Olivia Taylor",
     "instructor_image": "https://i.ibb.co/3RXLjCp/olivia-taylor.png",
@@ -85,7 +85,7 @@
   },
   {
     "_id": "8",
-    "name": "Business Analytics and Intelligence",
+    "name": "Business Analytics",
     "image": "https://i.ibb.co/KxhwhbX/business-analytics.jpg",
     "instructor_name": "Alex Johnson",
     "instructor_image": "https://i.ibb.co/MhHqFfk/alex-johnson.png",

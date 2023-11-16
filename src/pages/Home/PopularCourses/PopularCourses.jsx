@@ -21,7 +21,7 @@ const PopularCourses = () => {
     <div className="mx-4">
       {/* title */}
       <SectionTitle
-        heading={"Popular Courses"}
+        heading={"Trending Courses"}
         subHeading={"Discover our student favorites"}
       />
       <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3 gap-4">
