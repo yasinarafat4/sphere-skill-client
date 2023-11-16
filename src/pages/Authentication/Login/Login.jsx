@@ -1,10 +1,10 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import LoginForm from './LoginForm';
+import React from "react";
+import { Helmet } from "react-helmet-async";
+import LoginForm from "./LoginForm";
 
 const Login = () => {
-    return (
-        <div className="w-full py-4 lg:py-10 dark:bg-slate-900 dark:text-white">
+  return (
+    <div className="w-full py-4 lg:py-10 dark:bg-slate-900 dark:text-white">
       {/* Dynamic page title */}
       <Helmet>
         <title>SS | Login</title>
@@ -18,7 +18,7 @@ const Login = () => {
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default Login;

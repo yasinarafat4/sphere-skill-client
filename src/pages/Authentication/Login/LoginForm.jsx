@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import SocialLogin from "../../components/SocialLogin/SocialLogin";
+import SocialLogin from "../../../components/SocialLogin/SocialLogin";
 
 const LoginForm = () => {
   // states
@@ -91,8 +91,8 @@ const LoginForm = () => {
       </div>
       <p className="text-center text-gray-700 dark:text-gray-300 text-sm">
         Don&apos;t have an account?
-        <Link to="/register" className="text-blue-500 underline ml-1">
-          Register
+        <Link to="/signup" className="text-blue-500 underline ml-1">
+          Sign Up
         </Link>
       </p>
       <span className="text-center">OR</span>
