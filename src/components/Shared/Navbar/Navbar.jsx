@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 
 const Navbar = () => {
   // States
   const [navToggle, setNavToggle] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [theme, setTheme] = useState("light");
+
+  const { user } = useAuth();
 
   // Dark and Light Mood effect
   useEffect(() => {
@@ -25,7 +28,10 @@ const Navbar = () => {
   return (
     <nav className="navbar sticky top-0 z-10 bg-slate-200 shadow-lg dark:bg-slate-800  dark:text-white lg:pr-3">
       <div className="flex-1">
-        <Link to="/" className="cursor-pointer text-2xl normal-case font-semibold">
+        <Link
+          to="/"
+          className="cursor-pointer text-2xl normal-case font-semibold"
+        >
           SphereSkill
         </Link>
       </div>
@@ -81,49 +87,60 @@ const Navbar = () => {
           </NavLink>
         </div>
 
-        {/* Login */}
-        <Link to="/login">
-          <button className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 text-sm md:text-base font-semibold md:px-5 md:py-2 duration-500 rounded-full">
-            Login
-          </button>
-        </Link>
-
-        {/* Profile */}
-        <div className="dropdown-end dropdown lg:mx-2">
-          <label tabIndex={0} className="btn-ghost btn-circle avatar btn">
-            <div className="w-8 rounded-full">
-              <img
-                alt="user-logo"
-                src={
-                  "https://i.ibb.co/0QZCv5C/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black.png"
-                }
-                width={40}
-                height={40}
-                className="h-10 w-10 rounded-full"
-              />
-            </div>
-          </label>
-          <ul
-            tabIndex={0}
-            className="menu-compact dropdown-content menu rounded-box mt-3 w-52 bg-base-100 p-2 shadow"
+        {/* conditional rendering for navbar view */}
+        {user ? (
+          <div
+            title={user?.displayName || "No User"}
+            className="dropdown-end dropdown lg:mx-2"
           >
-            <li className="mb-2 mt-1 text-center font-semibold">{"No User"}</li>
-            <div className="divider my-0"></div>
-            <li className="mb-2">
-              <Link to="/" className="text-lg" activeClassName="text-blue-500">
-                Profile
-              </Link>
-            </li>
-            <li className="">
-              <button
-                // onClick={handleLogout}
-                className="btn-warning btn content-center text-white"
-              >
-                Logout
-              </button>
-            </li>
-          </ul>
-        </div>
+            <label tabIndex={0} className="btn-ghost btn-circle avatar btn">
+              <div className="w-8 rounded-full">
+                <img
+                  alt="user-logo"
+                  src={
+                    user?.photoURL ||
+                    "https://i.ibb.co/0QZCv5C/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black.png"
+                  }
+                  width={40}
+                  height={40}
+                  className="h-10 w-10 rounded-full"
+                />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu-compact dropdown-content menu rounded-box mt-3 w-52 bg-base-100 p-2 shadow"
+            >
+              <li className="mb-2 mt-1 text-center font-semibold">
+                {user?.displayName || "No User"}
+              </li>
+              <div className="divider my-0"></div>
+              <li className="mb-2">
+                <Link
+                  to="/"
+                  className="text-lg"
+                  activeClassName="text-blue-500"
+                >
+                  Profile
+                </Link>
+              </li>
+              <li className="">
+                <button
+                  // onClick={handleLogout}
+                  className="btn-warning btn content-center text-white"
+                >
+                  Logout
+                </button>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <Link to="/login">
+            <button className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 text-sm md:text-base font-semibold md:px-5 md:py-2 lg:mx-4 duration-500 rounded-full">
+              Login
+            </button>
+          </Link>
+        )}
 
         {/* Dark & Light mode */}
         <label className="swap swap-rotate lg:mr-3">
