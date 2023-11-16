@@ -25,7 +25,7 @@ const Navbar = () => {
   return (
     <nav className="navbar sticky top-0 z-10 bg-slate-200 shadow-lg dark:bg-slate-800  dark:text-white lg:pr-3">
       <div className="flex-1">
-        <Link to="/" className="btn-ghost btn text-2xl normal-case">
+        <Link to="/" className="cursor-pointer text-2xl normal-case font-semibold">
           SphereSkill
         </Link>
       </div>
@@ -42,7 +42,7 @@ const Navbar = () => {
               isActive ? "text-blue-500" : "text-slate-600 dark:text-slate-300"
             }
           >
-            <p className="text-lg lg:text-sm xl:text-lg font-medium hover:duration-500">
+            <p className="text-lg lg:text-base 2xl:text-lg font-medium hover:duration-500">
               Home
             </p>
           </NavLink>
@@ -53,7 +53,7 @@ const Navbar = () => {
               isActive ? "text-blue-500" : "text-slate-600 dark:text-slate-300"
             }
           >
-            <p className="text-lg lg:text-sm xl:text-lg font-medium hover:duration-500">
+            <p className="text-lg lg:text-base 2xl:text-lg font-medium hover:duration-500">
               Dashboard
             </p>
           </NavLink>
@@ -64,7 +64,7 @@ const Navbar = () => {
               isActive ? "text-blue-500" : "text-slate-600 dark:text-slate-300"
             }
           >
-            <p className="text-lg lg:text-sm xl:text-lg font-medium hover:duration-500">
+            <p className="text-lg lg:text-base 2xl:text-lg font-medium hover:duration-500">
               Courses
             </p>
           </NavLink>
@@ -75,7 +75,7 @@ const Navbar = () => {
               isActive ? "text-blue-500" : "text-slate-600 dark:text-slate-300"
             }
           >
-            <p className="text-lg lg:text-sm xl:text-lg font-medium hover:duration-500">
+            <p className="text-lg lg:text-base 2xl:text-lg font-medium hover:duration-500">
               Instructors
             </p>
           </NavLink>
