@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 const Navbar = () => {
@@ -8,7 +8,17 @@ const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [theme, setTheme] = useState("light");
 
-  const { user } = useAuth();
+  const { user, logOut } = useAuth();
+  const navigate = useNavigate();
+
+  //  logout Handler
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => console.log(error));
+  };
 
   // Dark and Light Mood effect
   useEffect(() => {
@@ -32,7 +42,14 @@ const Navbar = () => {
           to="/"
           className="cursor-pointer text-2xl normal-case font-semibold"
         >
-          SphereSkill
+          <div className="flex justify-center items-center">
+            <img
+              className="w-12 md:w-16"
+              src="https://i.ibb.co/bdL08Xv/footer-img.png"
+              alt=""
+            />
+            <p>SphereSkill</p>
+          </div>
         </Link>
       </div>
       <div
@@ -40,7 +57,7 @@ const Navbar = () => {
           navToggle ? "left-0" : "left-[-120%]"
         } top-[4rem] flex w-full flex-col bg-slate-200 pb-3 pt-2 transition-all duration-300 dark:bg-slate-900 lg:static lg:w-[unset] lg:flex-row lg:bg-transparent lg:pb-0 lg:pt-0 dark:lg:bg-transparent`}
       >
-        <div className="menu menu-horizontal flex-col px-1 lg:flex-row lg:gap-4 xl:gap-6">
+        <div className="menu menu-horizontal flex-col space-y-3 lg:space-y-0 px-1 lg:flex-row lg:gap-4 xl:gap-6">
           <NavLink
             to="/"
             onClick={() => setNavToggle(!navToggle)}
@@ -52,17 +69,21 @@ const Navbar = () => {
               Home
             </p>
           </NavLink>
-          <NavLink
-            to="/dashboard"
-            onClick={() => setNavToggle(!navToggle)}
-            className={({ isActive }) =>
-              isActive ? "text-blue-500" : "text-slate-600 dark:text-slate-300"
-            }
-          >
-            <p className="text-lg lg:text-base 2xl:text-lg font-medium hover:duration-500">
-              Dashboard
-            </p>
-          </NavLink>
+          {user && (
+            <NavLink
+              to="/dashboard"
+              onClick={() => setNavToggle(!navToggle)}
+              className={({ isActive }) =>
+                isActive
+                  ? "text-blue-500"
+                  : "text-slate-600 dark:text-slate-300"
+              }
+            >
+              <p className="text-lg lg:text-base 2xl:text-lg font-medium hover:duration-500">
+                Dashboard
+              </p>
+            </NavLink>
+          )}
           <NavLink
             to="/courses"
             onClick={() => setNavToggle(!navToggle)}
@@ -89,21 +110,20 @@ const Navbar = () => {
 
         {/* conditional rendering for navbar view */}
         {user ? (
-          <div
-            title={user?.displayName || "No User"}
-            className="dropdown-end dropdown lg:mx-2"
-          >
+          <div className="dropdown-end dropdown lg:mx-2 mb-2 lg:mb-0 ">
             <label tabIndex={0} className="btn-ghost btn-circle avatar btn">
-              <div className="w-8 rounded-full">
+              <div
+                title={user?.displayName || "No User"}
+                className="w-8 rounded-full"
+              >
                 <img
                   alt="user-logo"
                   src={
                     user?.photoURL ||
                     "https://i.ibb.co/0QZCv5C/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black.png"
                   }
-                  width={40}
-                  height={40}
-                  className="h-10 w-10 rounded-full"
+                  width={42}
+                  height={42}
                 />
               </div>
             </label>
@@ -126,7 +146,7 @@ const Navbar = () => {
               </li>
               <li className="">
                 <button
-                  // onClick={handleLogout}
+                  onClick={handleLogOut}
                   className="btn-warning btn content-center text-white"
                 >
                   Logout
@@ -136,7 +156,7 @@ const Navbar = () => {
           </div>
         ) : (
           <Link to="/login">
-            <button className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 text-sm md:text-base font-semibold md:px-5 md:py-2 lg:mx-4 duration-500 rounded-full">
+            <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 text-sm md:text-base font-semibold md:px-5 lg:mx-4 my-4 lg:my-0 duration-500 rounded-full">
               Login
             </button>
           </Link>
@@ -178,8 +198,8 @@ const Navbar = () => {
         <svg
           className="swap-off fill-current"
           xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
+          width="30"
+          height="30"
           viewBox="0 0 512 512"
         >
           <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />

@@ -15,8 +15,8 @@ const SocialLogin = () => {
     googleSignIn()
       .then((result) => {
         console.log(result.user);
-        navigate(from, { replace: true });
         toast.success("Successfully logged in with Google");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error);
