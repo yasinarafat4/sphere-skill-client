@@ -16,7 +16,7 @@ const PopularInstructors = () => {
         setPopularInstructors(popularInstructorsData);
       });
   }, []);
-  console.log(popularInstructors);
+  
   return (
     <div className="mx-4">
       {/* title */}

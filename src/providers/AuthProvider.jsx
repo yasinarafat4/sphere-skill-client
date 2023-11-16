@@ -1,12 +1,12 @@
 import {
-    GoogleAuthProvider,
-    createUserWithEmailAndPassword,
-    getAuth,
-    onAuthStateChanged,
-    signInWithEmailAndPassword,
-    signInWithPopup,
-    signOut,
-    updateProfile,
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { app } from "../firebase/firebase.config";
@@ -18,6 +18,8 @@ const AuthProvider = ({ children }) => {
   // States
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [searchCourses, setSearchCourses] = useState("");
+  const [getCourses, setGetCourses] = useState([]);
 
   // Create user functionality for Register
   const createUser = (email, password) => {
@@ -64,6 +66,19 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
+
+  // Search functionality for Courses
+  useEffect(() => {
+    if (searchCourses) {
+      fetch(`http://localhost:5000/courseSearch/${searchCourses}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setGetCourses(data);
+          console.log("search data", data);
+        });
+    }
+  }, [searchCourses]);
+
   // All Authentication Informations
   const authInfo = {
     user,
@@ -73,6 +88,8 @@ const AuthProvider = ({ children }) => {
     googleSignIn,
     logOut,
     updateUserProfile,
+    getCourses,
+    setSearchCourses,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

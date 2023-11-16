@@ -3,9 +3,11 @@ import { Helmet } from "react-helmet-async";
 import { BiSearch } from "react-icons/bi";
 import CourseCard from "../../components/CourseCard/CourseCard";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import useAuth from "../../hooks/useAuth";
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
+  const { getCourses, searchCourses, setSearchCourses } = useAuth();
 
   //  Using the 'useEffect' hook to perform side effects
   useEffect(() => {
@@ -15,7 +17,6 @@ const Courses = () => {
         setCourses(data);
       });
   }, []);
-  console.log(courses);
 
   return (
     <div className="py-2 px-2 lg:py-4 lg:px-8 dark:bg-slate-900">
@@ -38,24 +39,27 @@ const Courses = () => {
           <input
             type="search"
             name="search"
-            // onChange={(e) => setSerchBlogText(e.target.value)}
+            onChange={(e) => setSearchCourses(e.target.value)}
             placeholder="Search Courses..."
             className="bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none w-full border border-primary"
           />
-          <button
-            // onClick={handleSearch}
-            type="submit"
-          >
+          <button type="submit">
             <BiSearch className="-ms-8 text-gray-600 text-xl" />
           </button>
         </div>
       </div>
       <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {courses.map((course) => (
-          <>
-            <CourseCard key={course._id} course={course} />
-          </>
-        ))}
+        {searchCourses
+          ? courses.map((course) => (
+              <>
+                <CourseCard key={course._id} course={course} />
+              </>
+            ))
+          : getCourses.map((course) => (
+              <>
+                <CourseCard key={course._id} course={course} />
+              </>
+            ))}
       </div>
     </div>
   );

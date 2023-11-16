@@ -14,7 +14,7 @@ const Instructors = () => {
         setInstructors(data);
       });
   }, []);
-  console.log(instructors);
+ 
 
   return (
     <div className="py-2 px-2 lg:py-4 lg:px-8 dark:bg-slate-900">

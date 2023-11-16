@@ -2,8 +2,8 @@ import React from "react";
 
 const Dashboard = () => {
   return (
-    <div className="drawer lg:drawer-open">
-      <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+    <div className="drawer lg:drawer-open dark:bg-slate-900 dark:text-white">
+      <input id="my-drawer-2" type="checkbox" className="drawer-toggle " />
       <div className="drawer-content flex flex-col items-center justify-center">
         {/* Page content here */}
         <label
@@ -21,9 +21,9 @@ const Dashboard = () => {
           className="drawer-overlay"
         >
         </label>
-        <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+        <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content dark:bg-slate-800 ">
           {/* Sidebar content here */}
-          <h1 className="text-center text-2xl font-bold text-slate-600 mt-20 lg:mt-4">Instructor Dashboard</h1>
+          <h1 className="text-center text-2xl font-bold text-slate-600 dark:text-white mt-20 lg:mt-4">Instructor Dashboard</h1>
         </ul>
       </div>
     </div>

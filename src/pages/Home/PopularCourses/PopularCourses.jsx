@@ -16,7 +16,7 @@ const PopularCourses = () => {
         setPopularCourses(popularCoursesData);
       });
   }, []);
-  console.log(popularCourses);
+  
   return (
     <div className="mx-4">
       {/* title */}
