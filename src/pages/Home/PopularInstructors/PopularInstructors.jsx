@@ -6,7 +6,7 @@ const PopularInstructors = () => {
   const [popularInstructors, setPopularInstructors] = useState([]);
 
   useEffect(() => {
-    fetch("/public/instructors.json")
+    fetch("http://localhost:5000/instructors")
       .then((res) => res.json())
       .then((data) => {
         // Filter courses by category

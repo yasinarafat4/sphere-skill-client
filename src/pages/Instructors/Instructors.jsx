@@ -8,7 +8,7 @@ const Instructors = () => {
 
   //  Using the 'useEffect' hook to perform side effects
   useEffect(() => {
-    fetch("/public/instructors.json")
+    fetch("http://localhost:5000/instructors")
       .then((res) => res.json())
       .then((data) => {
         setInstructors(data);
@@ -24,7 +24,12 @@ const Instructors = () => {
       </Helmet>
 
       {/* Title */}
-      <PageTitle heading={"Instructors"} text={"Embark on a transformative tech journey led by renowned instructors who ignite creativity, nurture talent, and guide you towards achieving tech mastery. Unlock your boundless creativity through the lessons offered by our trusted experts in the field."} />
+      <PageTitle
+        heading={"Instructors"}
+        text={
+          "Embark on a transformative tech journey led by renowned instructors who ignite creativity, nurture talent, and guide you towards achieving tech mastery. Unlock your boundless creativity through the lessons offered by our trusted experts in the field."
+        }
+      />
 
       {/* Search Box */}
       <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3 gap-4">

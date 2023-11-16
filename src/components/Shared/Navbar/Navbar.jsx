@@ -114,7 +114,7 @@ const Navbar = () => {
             <label tabIndex={0} className="btn-ghost btn-circle avatar btn">
               <div
                 title={user?.displayName || "No User"}
-                className="w-8 rounded-full"
+                className="w-9 rounded-full border border-slate-600 dark:border-slate-400"
               >
                 <img
                   alt="user-logo"
