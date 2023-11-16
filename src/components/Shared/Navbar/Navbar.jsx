@@ -119,8 +119,9 @@ const Navbar = () => {
                 <img
                   alt="user-logo"
                   src={
-                    user?.photoURL ||
-                    "https://i.ibb.co/0QZCv5C/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black.png"
+                    user
+                      ? user?.photoURL
+                      : "https://i.ibb.co/0QZCv5C/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black.png"
                   }
                   width={42}
                   height={42}

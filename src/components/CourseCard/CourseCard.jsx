@@ -4,7 +4,7 @@ import Rating from "react-rating";
 import { Link } from "react-router-dom";
 
 const CourseCard = ({ course }) => {
-  const { name, image, price, ratings } = course;
+  const { _id, name, image, price, ratings } = course;
   return (
     <div className="w-full border p-4 rounded-md shadow-md dark:text-white">
       <div className="mb-4">
@@ -30,11 +30,11 @@ const CourseCard = ({ course }) => {
             fullSymbol={<FaStar></FaStar>}
           />
         </div>
-        <Link to="/">
-            <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 text-sm md:text-base font-semibold md:px-5 lg:mx-4 my-4 lg:my-0 duration-500 rounded">
-              View Course
-            </button>
-          </Link>
+        <Link to={`/courseDetails/${_id}`}>
+          <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 text-sm md:text-base font-semibold md:px-5 lg:mx-4 my-4 lg:my-0 duration-500 rounded">
+            View Course
+          </button>
+        </Link>
       </div>
     </div>
   );
