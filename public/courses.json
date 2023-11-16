@@ -105,10 +105,10 @@
     "image": "https://i.ibb.co/xFqCdb7/video-editing-techniques.jpg",
     "instructor_name": "Emma White",
     "instructor_image": "https://i.ibb.co/6DLjMKs/emma-white.png",
-    "category": "Popular",
+    "category": "Regular",
     "ratings": 4.5,
     "course_content": "Enhance your video editing proficiency using industry-standard tools. Gain expertise in Adobe Premiere, Final Cut Pro, and the art of video production.",
-    "price": 340,
+    "price": 140,
     "syllabus": ["Adobe Premiere", "Final Cut Pro", "Video Production"]
   },
   {

@@ -13,7 +13,7 @@ const CourseCard = ({ course }) => {
       <div className="flex items-center justify-between mb-4">
         <p className="text-lg font-semibold">{name}</p>
         <div>
-          <p className="text-lg font-semibold">Price: ${price}</p>
+          <p className="text-lg font-normal">Price: ${price}</p>
         </div>
       </div>
       <div className="flex items-center justify-between">
