@@ -81,6 +81,13 @@ const Navbar = () => {
           </NavLink>
         </div>
 
+        {/* Login */}
+        <Link to="/login">
+          <button className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 text-sm md:text-base font-semibold md:px-5 md:py-2 duration-500 rounded-full">
+            Login
+          </button>
+        </Link>
+
         {/* Profile */}
         <div className="dropdown-end dropdown lg:mx-2">
           <label tabIndex={0} className="btn-ghost btn-circle avatar btn">
