@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../../components/SocialLogin/SocialLogin";
+import useAuth from "../../../hooks/useAuth";
 
 const LoginForm = () => {
   // states
@@ -16,8 +18,29 @@ const LoginForm = () => {
     formState: { errors },
   } = useForm();
 
+  // login functionality
+  const { signIn } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
+  // login handler
   const handleLogin = (data) => {
-    console.log(data);
+    signIn(data.email, data.password)
+      .then((result) => {
+        console.log(result.user);
+        toast.success("Successfully loggedin");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        if (error.code === "auth/user-not-found") {
+          setError("User Not Found. Invalid email or password!");
+        } else if (error.code === "auth/invalid-login-credentials") {
+          setError("Wrong Password. Please try again!");
+        } else {
+          setError(error.message);
+        }
+      });
   };
 
   return (
@@ -27,7 +50,7 @@ const LoginForm = () => {
     >
       {/* Email field */}
       <div className="form-control">
-      <label htmlFor="email" className="block mb-1">
+        <label htmlFor="email" className="block mb-1">
           Email
         </label>
         <input
