@@ -16,7 +16,7 @@ Sphere Skill is a Online Learning Platform aims to provide learners with a compr
 
 <!-- TODO: Website Live Link Here -->
 
-- Hosted in firebase -> [Sphere Skill]()
+- Hosted in firebase -> [Sphere Skill](https://sphere-skill.web.app/)
 - Testing Email -> sphereskill@gmail.com
 - Password -> SphereSkill@123
 
