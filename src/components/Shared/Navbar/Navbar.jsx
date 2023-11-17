@@ -130,7 +130,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu-compact dropdown-content menu rounded-box mt-3 w-52 bg-base-100 p-2 shadow"
+              className="dark:bg-slate-700 dark:text-white menu-compact dropdown-content menu rounded-box mt-3 w-52 bg-base-300 p-2 shadow"
             >
               <li className="mb-2 mt-1 text-center font-semibold">
                 {user?.displayName || "No User"}
@@ -138,17 +138,17 @@ const Navbar = () => {
               <div className="divider my-0"></div>
               <li className="mb-2">
                 <Link
-                  to="/"
+                  to="/userProfile"
                   className="text-lg"
                   activeClassName="text-blue-500"
                 >
                   Profile
                 </Link>
               </li>
-              <li className="">
+              <li>
                 <button
                   onClick={handleLogOut}
-                  className="btn-warning btn content-center text-white"
+                  className="btn-info btn content-center text-white dark:hover:text-slate-200"
                 >
                   Logout
                 </button>

@@ -8,6 +8,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home";
 import Instructors from "../pages/Instructors/Instructors";
 import SingleCourseDetails from "../pages/SingleCourseDetails/SingleCourseDetails";
+import UserProfile from "../pages/UserProfile/UserProfile";
 
 export const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp />,
+      },
+      {
+        path: "/userProfile",
+        element: <UserProfile />,
       },
     ],
   },
