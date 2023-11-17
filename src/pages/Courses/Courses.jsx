@@ -34,6 +34,7 @@ const Courses = () => {
       />
 
       {/* Search Box */}
+      <h1 className="text-center mt-6 font-semibold text-xl">To view the course, Search by course name, category, or instructors!</h1>
       <div className="flex items-center justify-end  mb-6">
         <div className="text-gray-600 border-none mt-20 rounded-md w-10/12 md:w-2/5 mx-auto md:mx-0 lg:w-3/12 flex items-center">
           <input
@@ -49,32 +50,17 @@ const Courses = () => {
         </div>
       </div>
       <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {searchCourses ? (
-          getCourses.length > 0 ? (
-            getCourses.map((course) => (
+        {searchCourses
+          ? courses.map((course) => (
               <>
                 <CourseCard key={course._id} course={course} />
               </>
             ))
-          ) : (
-            <>
-              <p>No Data Found!</p>
-            </>
-          )
-        ) : getCourses.length > 0 ? (
-          courses.map((course) => (
-            <>
-              <CourseCard key={course._id} course={course} />
-            </>
-          ))
-        ) : (
-          <>
-            <p className="text-center text-lg font-medium text-red-600">
-              To view the courses, search by course name, category, or
-              instructors!
-            </p>
-          </>
-        )}
+          : getCourses.map((course) => (
+              <>
+                <CourseCard key={course._id} course={course} />
+              </>
+            ))}
       </div>
     </div>
   );

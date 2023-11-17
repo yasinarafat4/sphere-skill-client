@@ -74,10 +74,10 @@ const AuthProvider = ({ children }) => {
         .then((res) => res.json())
         .then((data) => {
           setGetCourses(data);
-          console.log("search data", data);
         });
     }
   }, [searchCourses]);
+
 
   // All Authentication Informations
   const authInfo = {
