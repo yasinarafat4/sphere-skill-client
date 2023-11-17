@@ -49,17 +49,32 @@ const Courses = () => {
         </div>
       </div>
       <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {searchCourses
-          ? courses.map((course) => (
+        {searchCourses ? (
+          getCourses.length > 0 ? (
+            getCourses.map((course) => (
               <>
                 <CourseCard key={course._id} course={course} />
               </>
             ))
-          : getCourses.map((course) => (
-              <>
-                <CourseCard key={course._id} course={course} />
-              </>
-            ))}
+          ) : (
+            <>
+              <p>No Data Found!</p>
+            </>
+          )
+        ) : getCourses.length > 0 ? (
+          courses.map((course) => (
+            <>
+              <CourseCard key={course._id} course={course} />
+            </>
+          ))
+        ) : (
+          <>
+            <p className="text-center text-lg font-medium text-red-600">
+              To view the courses, search by course name, category, or
+              instructors!
+            </p>
+          </>
+        )}
       </div>
     </div>
   );
