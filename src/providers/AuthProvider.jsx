@@ -70,7 +70,7 @@ const AuthProvider = ({ children }) => {
   // Search functionality for Courses
   useEffect(() => {
     if (searchCourses) {
-      fetch(`http://localhost:5000/courseSearch/${searchCourses}`)
+      fetch(`https://sphere-skill-server.vercel.app/courseSearch/${searchCourses}`)
         .then((res) => res.json())
         .then((data) => {
           setGetCourses(data);

@@ -6,7 +6,7 @@ const PopularCourses = () => {
   const [popularCourses, setPopularCourses] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/courses")
+    fetch("https://sphere-skill-server.vercel.app/courses")
       .then((res) => res.json())
       .then((data) => {
         // Filter courses by category

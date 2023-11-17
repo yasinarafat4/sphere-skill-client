@@ -35,7 +35,7 @@ export const router = createBrowserRouter([
         path: "/courseDetails/:id",
         element: <SingleCourseDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/courses/${params?.id}`),
+          fetch(`https://sphere-skill-server.vercel.app/courses/${params?.id}`),
       },
       {
         path: "/login",

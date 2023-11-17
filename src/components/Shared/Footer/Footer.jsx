@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 
 const Footer = () => {
@@ -20,6 +20,13 @@ const Footer = () => {
       </aside>
       <nav>
         <div className="flex justify-center items-center gap-2">
+          <a
+            href="https://www.linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaLinkedin className="react-facebook-icon text-slate-700 dark:text-white text-xl" />
+          </a>
           <a
             href="https://www.facebook.com"
             target="_blank"

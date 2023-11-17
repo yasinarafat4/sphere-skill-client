@@ -11,7 +11,7 @@ const Courses = () => {
 
   //  Using the 'useEffect' hook to perform side effects
   useEffect(() => {
-    fetch("http://localhost:5000/courses")
+    fetch("https://sphere-skill-server.vercel.app/courses")
       .then((res) => res.json())
       .then((data) => {
         setCourses(data);
@@ -35,7 +35,7 @@ const Courses = () => {
 
       {/* Search Box */}
       <div className="flex items-center justify-end  mb-6">
-        <div className="text-gray-600 border-none mt-20 rounded-md w-10/12 md:w-1/2 mx-auto md:mx-0 lg:w-1/3 flex items-center">
+        <div className="text-gray-600 border-none mt-20 rounded-md w-10/12 md:w-2/5 mx-auto md:mx-0 lg:w-3/12 flex items-center">
           <input
             type="search"
             name="search"

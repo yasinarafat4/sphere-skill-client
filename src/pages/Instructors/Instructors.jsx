@@ -8,7 +8,7 @@ const Instructors = () => {
 
   //  Using the 'useEffect' hook to perform side effects
   useEffect(() => {
-    fetch("http://localhost:5000/instructors")
+    fetch("https://sphere-skill-server.vercel.app/instructors")
       .then((res) => res.json())
       .then((data) => {
         setInstructors(data);
